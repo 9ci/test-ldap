@@ -63,3 +63,5 @@ grails.project.dependency.resolution = {
 		
     }
 }
+grails.project.work.dir = '.grails'    // NOT in the home directory!  In the root of the project.
+

@@ -1,9 +1,14 @@
 /**
  * Created by Juan Vazquez.
- * URL: http://javazquez.com/juan
+ * Modified by Ken Roberts at 9ci Inc
+ * URL: http://www.9ci.com
  * Code is provide for educational purposes. Any use in a production system is at your own risk.
  */
 
+grails.config.locations = [
+    // "classpath:9ci-config.groovy",
+    "classpath:testLdap-config.groovy"
+    ]
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
@@ -87,12 +92,12 @@ log4j = {
 
 //Active directory setup, read the spring-security-ldap docs for more information
 grails.plugins.springsecurity.providerNames = ['ldapAuthProvider']
-grails.plugins.springsecurity.ldap.context.managerDn = 'CN=juan,OU=Accounts,DC=JAVAZQUEZ,DC=com'
+grails.plugins.springsecurity.ldap.context.managerDn = 'CN=9ci,OU=Accounts,DC=yourdomain,DC=com'
 grails.plugins.springsecurity.ldap.context.managerPassword = 'pwd'
-grails.plugins.springsecurity.ldap.context.server = 'ldap://javazquez.com:389'
-grails.plugins.springsecurity.ldap.authorities.groupSearchBase = 'ou=Accounts,dc=javazquez,dc=com'
+grails.plugins.springsecurity.ldap.context.server = 'ldap://yourdomain.com:389'
+grails.plugins.springsecurity.ldap.authorities.groupSearchBase = 'ou=Accounts,dc=yourdomain,dc=com'
 grails.plugins.springsecurity.ldap.authorities.retrieveGroupRoles = true
 grails.plugins.springsecurity.ldap.authorities.retrieveDatabaseRoles = false
 grails.plugins.springsecurity.ldap.mapper.userDetailsClass = 'person'
 grails.plugins.springsecurity.ldap.search.filter = '(sAMAccountName={0})'
-grails.plugins.springsecurity.ldap.search.base = 'DC=JAVAZQUEZ,DC=JUAN,DC=com'
+grails.plugins.springsecurity.ldap.search.base = 'DC=yourdomain,DC=9ci,DC=com'

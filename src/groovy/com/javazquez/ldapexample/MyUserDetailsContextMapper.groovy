@@ -15,7 +15,8 @@ class MyUserDetailsContextMapper implements UserDetailsContextMapper {
 
 	//Grab the specific Active Directory information you want
     String fullname = ctx.originalAttrs.attrs['cn'].values[0]
-    String email = ctx.originalAttrs.attrs['mail'].values[0].toString().toLowerCase()
+    //String email = ctx.originalAttrs.attrs['mail'].values[0].toString().toLowerCase()
+    String email = 'joe@example.com'
 	
     def titleobj = ctx.originalAttrs.attrs['sn']	
 	String title = (titleobj  == null) ? '' : titleobj.values[0]

@@ -6,7 +6,7 @@
  */
 
 grails.config.locations = [
-    // "classpath:9ci-config.groovy",
+    "classpath:9ci-config.groovy",
     "classpath:testLdap-config.groovy"
     ]
 
@@ -92,12 +92,12 @@ log4j = {
 
 //Active directory setup, read the spring-security-ldap docs for more information
 grails.plugins.springsecurity.providerNames = ['ldapAuthProvider']
-grails.plugins.springsecurity.ldap.context.managerDn = 'CN=9ci,OU=Accounts,DC=yourdomain,DC=com'
-grails.plugins.springsecurity.ldap.context.managerPassword = 'pwd'
-grails.plugins.springsecurity.ldap.context.server = 'ldap://yourdomain.com:389'
-grails.plugins.springsecurity.ldap.authorities.groupSearchBase = 'ou=Accounts,dc=yourdomain,dc=com'
-grails.plugins.springsecurity.ldap.authorities.retrieveGroupRoles = true
-grails.plugins.springsecurity.ldap.authorities.retrieveDatabaseRoles = false
-grails.plugins.springsecurity.ldap.mapper.userDetailsClass = 'person'
-grails.plugins.springsecurity.ldap.search.filter = '(sAMAccountName={0})'
-grails.plugins.springsecurity.ldap.search.base = 'DC=yourdomain,DC=9ci,DC=com'
+grails.plugins.springsecurity.ldap.context.managerDn = 'lgk@nine.local'
+grails.plugins.springsecurity.ldap.context.managerPassword = '611Nrt83'
+grails.plugins.springsecurity.ldap.context.server = 'ldap://dc1vm2k8:389'
+//grails.plugins.springsecurity.ldap.authorities.groupSearchBase = 'ou=Accounts,dc=yourdomain,dc=com'
+grails.plugins.springsecurity.ldap.authorities.retrieveGroupRoles = false
+grails.plugins.springsecurity.ldap.authorities.retrieveDatabaseRoles = true
+grails.plugins.springsecurity.ldap.mapper.userDetailsClass = 'Person'
+grails.plugins.springsecurity.ldap.search.filter='(&(objectClass=user)(sAMAccountName={0})(memberOf=CN=9ci-app-users,DC=nine,DC=local))'
+grails.plugins.springsecurity.ldap.search.base = 'CN=users,DC=nine,DC=local'

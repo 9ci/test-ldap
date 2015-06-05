@@ -90,6 +90,7 @@ class LoginController {
         def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
         String msg = ''
         def exception = session[WebAttributes.AUTHENTICATION_EXCEPTION]
+	println "authfail exception:  ${exception}"
         if (exception) {
             if (exception instanceof AccountExpiredException) {
                 msg = g.message(code: "springSecurity.errors.login.expired")
@@ -116,6 +117,7 @@ class LoginController {
      * The Ajax success redirect url.
      */
     def ajaxSuccess = {
+	println "ajaxSuccess for user: ${springSecurityService.authentication.name}"
         render([success: true, username: springSecurityService.authentication.name] as JSON)
     }
 
